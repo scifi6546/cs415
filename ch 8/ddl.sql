@@ -1,8 +1,3 @@
-CREATE TABLE InspectionType(
-    InspectionType INT NOT NULL,
-    InspectionDescription VARCHAR(37) NOT NULL,
-    PRIMARY KEY(InspectionType)
-);
 CREATE TABLE Result(
     ResultType INT NOT NULL,
     ResultDescription VARCHAR(37) NOT NULL,
@@ -58,13 +53,13 @@ CREATE TABLE Inspection(
     InspectionDate date DEFAULT NULL,
     InspectionMemo varchar(632),
     InspectionType int,
+    InspectionDescription VARCHAR(37) NOT NULL,
     ActionType int NOT NULL,
     ResultType int NOT NULL,
     ViolationType VARCHAR(6) NOT NULL,
     ProgramType int NOT NULL,
     FacilityKey int NOT NULL,
     PRIMARY KEY(InspectionId),
-    Foreign key (InspectionType) REFERENCES InspectionType(InspectionType),
     Foreign Key (ActionType) REFERENCES Action(ActionType),
     Foreign Key (ResultType) REFERENCES Result(ResultType),
     Foreign Key (ViolationType) REFERENCES Violation(ViolationType),
