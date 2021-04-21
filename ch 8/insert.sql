@@ -30,6 +30,7 @@ SELECT DISTINCT
 FROM
     Albuquerque.FoodInspections;
 INSERT INTO SiteAddress(
+    SiteAddress,
     City,
     State,
     Zip,
@@ -39,6 +40,7 @@ INSERT INTO SiteAddress(
     PostalDirection
 )
 SELECT DISTINCT
+    SITE_ADDRESS,
     CITY,
     STATE,
     ZIP,
@@ -55,4 +57,20 @@ SELECT DISTINCT
     OWNER_NAME
 FROM
     Albuquerque.FoodInspections;
-    
+INSERT INTO Facility(
+    FacilityKey,
+    NatureOfBusiness,
+    FacilityName,
+    SiteAddress,
+    Phone,
+    OwnerKey
+)
+SELECT DISTINCT
+    FACILITY_KEY,
+    NATURE_OF_BUSINESS,
+    FACILITY_NAME,
+    SITE_ADDRESS,
+    PHONE,
+    OWNER_KEY
+FROM
+    Albuquerque.FoodInspections;

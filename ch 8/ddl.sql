@@ -21,7 +21,7 @@ CREATE TABLE Program(
 );
 
 CREATE TABLE SiteAddress(
-    AddressCode INT NOT NULL AUTO_INCREMENT,
+    SiteAddress varchar(38) NOT NULL,
     City CHAR(11) NOT NULL,
     State CHAR(2) NOT NULL,
     Zip VARCHAR(10) NOT NULL,
@@ -29,7 +29,7 @@ CREATE TABLE SiteAddress(
     StreetType VARCHAR(4) DEFAULT NULL,
     StreetName VARCHAR(24) NOT NULL,
     PostalDirection VARCHAR(2) DEFAULT NULL,
-    PRIMARY KEY(AddressCode)
+    PRIMARY KEY(SiteAddress)
 );
 CREATE TABLE Owner(
     OwnerKey INT NOT NULL,
@@ -41,11 +41,11 @@ CREATE TABLE Facility(
     FacilityKey INT NOT NULL,
     NatureofBusiness VARCHAR(25),
     FacilityName VARCHAR(100) NOT NULL,
-    AddressCode INT,
+    SiteAddress varchar(38) ,
     Phone VARCHAR(20) DEFAULT NULL,
     OwnerKey INT,
     PRIMARY KEY(FacilityKey),
-    Foreign Key(AddressCode) REFERENCES SiteAddress(AddressCode),
+    Foreign Key(SiteAddress) REFERENCES SiteAddress(SiteAddress),
     Foreign Key(OwnerKey) REFERENCES Owner(OwnerKey)
 );
 CREATE TABLE Inspection(
